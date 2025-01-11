@@ -7,8 +7,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_DEBUG "-DDEBUG -g -O0")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
-# Gather all .cpp files in the project directory
+# Gather all .cpp files
 file(GLOB SOURCES "*.cpp" Colors/*.cpp Pets/*.cpp)
+
+# Remove template files
+list(REMOVE_ITEM SOURCES "${CMAKE_SOURCE_DIR}/main.cpp" "${CMAKE_SOURCE_DIR}/del.cpp")
 
 # Add executable target with all .cpp files
 add_executable(${PROJECT_NAME} ${SOURCES})
