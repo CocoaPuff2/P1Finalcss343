@@ -1,0 +1,12 @@
+# ninja log v5
+2	111	1736569223075161869	CMakeFiles/my_executable.dir/main.cpp.o	4a2c174750c52f6b
+3	59	1736554320527001354	CMakeFiles/my_executable.dir/transposelist.cpp.o	9cc6195509824f3f
+3	1577	1736554335051127093	CMakeFiles/my_executable.dir/driver.cpp.o	800fa349b59403aa
+7	162	1736569492407457440	my_executable	68771629d775fa00
+130	219	1736553996262021220	CMakeFiles/my_executable.dir/transpose.cpp.o	c80d99033232fdaf
+3	101	1736554216662672101	CMakeFiles/my_executable.dir/mtflist.cpp.o	10a1e42c5286d145
+3	1336	1736569260877041261	CMakeFiles/my_executable.dir/LLStats.cpp.o	e6a45530550750c3
+0	237	1736569626069331452	build.ninja	8f34eee741842882
+4	253	1736554141313780248	CMakeFiles/my_executable.dir/CDLinkedList.cpp.o	aea0b4807907553d
+7	77	1736569416788505680	CMakeFiles/my_executable.dir/del.cpp.o	7621fa29496b5d13
+0	283	1736569626069331452	build.ninja	8f34eee741842882
