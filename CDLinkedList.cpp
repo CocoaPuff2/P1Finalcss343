@@ -48,6 +48,7 @@ CDLinkedList::~CDLinkedList()
 // Add new entry
 bool CDLinkedList::add(int newEntry)
 {
+
     // Check if entry already exists
     if (contains(newEntry))
     {

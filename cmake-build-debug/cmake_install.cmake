@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Qasim/Spring:Summer Quarter 2024/CSS342/OOP demo copy
+# Install script for directory: /Users/Qasim/css343/P1Final
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/Qasim/Spring:Summer Quarter 2024/CSS342/OOP demo copy/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/Qasim/css343/P1Final/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
