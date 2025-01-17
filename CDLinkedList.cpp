@@ -80,10 +80,10 @@ bool CDLinkedList::remove(int anEntry)
             current->next->prev = current->prev; // Fix prev connection
 
             delete current; // Avoid memory leaks
-            //traverseCount--;
             return true;
         }
         current = current->next;
+
     }
     return false;
 }
@@ -112,7 +112,7 @@ bool CDLinkedList::contains(int anEntry)
 
     while (current != header)
     {
-        traverseCount++;
+         traverseCount++;
         if (current->item == anEntry)
         {
             return true;
@@ -129,7 +129,6 @@ int CDLinkedList::getTraverseCount() const
 }
 
 // Retrieve entry based on an index
-// Retrieve entry based on an index
 int CDLinkedList::retrieve(int index)
 {
     // Ensure the index is valid: must be between 1 and getCurrentSize()
@@ -144,6 +143,7 @@ int CDLinkedList::retrieve(int index)
     for (int i = 1; i < index; i++)  // Start from i = 1 as we're treating the first item as index 1
     {
         current = current->next;
+        traverseCount++;
     }
 
     return current->item;

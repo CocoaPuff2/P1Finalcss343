@@ -1,66 +1,83 @@
 
-#include "CDLinkedList.h"
+//#include "CDLinkedList.h"
 //#include "mtflist.h"
-//#include "transposelist.h"
+#include "transposelist.h"
 #include <iostream>
 using namespace std;
 
 
-
+// TODO REMOVE THIS COMMENT
 int main() {
+    /*Test with Mtflist. If want to test with transposelist  or CDLinkedList, comment this declaration, and uncomment to declare ohter list*/
+
+
+
     //MtfList testList;  // uncomment to test Mtflist
-    //TransposeList testList; // uncomment to test transposelist
-     CDLinkedList testList; // uncomment to test CDLinkedList
+    TransposeList testList; // uncomment to test transposelist
+    // CDLinkedList testList; // uncomment to test CDLinkedList
 
-    // Reset all traverse count first
+// Reset all traverse count first
+// TODO REMOVE THIS COMMENT
     testList.resetTraverseCount();
-    cout<<"Reset traverse count: traverseCount="<<testList.getTraverseCount()<<endl;
-    std::cout << "Making a list..." << std::endl;
+    cout << "Reset traverse count: traverseCount=" << testList.getTraverseCount() << endl;
+
+    cout << "Make a list" << endl;
 
 
-    // traverseCount (tc) = 0
-    testList.add(1); // add() --> contains() tc = 0 because current == header, only one node n
-    testList.add(7); // add() --> contains() tc = 1 because we traverse one node, 7 (list is now 7, 1)
-    testList.add(8); // add() --> contains() tc = 3 because we traverse two node, 7 and 1 (list is now 8, 7, 1)
-    testList.add(5); // add() --> contains() tc = 6 because we traverse three nodes, 8, 7 and 1 (list is now 5, 8, 7, 1)
-    testList.add(1); // add() --> contains() tc = 10 because we traverse four nodes, 5, 8, 7 and 1 (list is now 5, 8, 7, 1)
+    testList.add(1);
+    testList.add(7);
+    testList.add(8);
+    testList.add(5);
+    testList.add(1);
 
 
+    cout << "#members 1->7->8->5->1: size=" << testList.getCurrentSize() << ", traverseCount="
+         << testList.getTraverseCount() << endl;
 
-    cout<<"Traverse count after adding elements to list: traverseCount="<<testList.getTraverseCount()<<endl;
+    for (int i = 1; i < testList.getCurrentSize() + 1; i++)
+        cout << "i=" << i << ":" << testList.retrieve(i) << endl;
 
-    cout << "#members 1->7->8->5->1: size=" << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
-    cout<<"traverse count="<<testList.getTraverseCount()<<endl;
-    for (int i = 1; i < testList.getCurrentSize()+1; i++)
-        cout << testList.retrieve(i) << endl;
-
+    cout << "After retrieve each incrementally: traverseCount=" << testList.getTraverseCount() << endl;
 
     cout << endl;
     testList.remove(8);
 
-    cout << "#After remove 8, : size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
-    cout<<"traverse count="<<testList.getTraverseCount()<<endl;
-    for (int i = 1; i < testList.getCurrentSize()+1; i++)
-        cout << testList.retrieve(i) << endl;
+    cout << "#After remove 8, : size= " << testList.getCurrentSize() << ", traverseCount="
+         << testList.getTraverseCount() << endl;;
+
+
+    for (int i = 1; i < testList.getCurrentSize() + 1; i++)
+        cout << "i=" << i << ":" << testList.retrieve(i) << endl;
 
     cout << endl;
-    cout<<"testList.contains(8)="<<testList.contains(8)<<endl;
 
-    cout << "# members, after access 8: size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
-    for (int i = 1; i < testList.getCurrentSize()+1; i++)
-        cout << testList.retrieve(i) << endl;
+    cout << "After retrieve each incrementally: traverseCount=" << testList.getTraverseCount() << endl;
 
-    cout<<"testList.contains(7)="<<testList.contains(7)<<endl;
+    cout << "testList.contains(8)=" << testList.contains(8) << endl;
 
-    cout << "# members, after access 7: size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;
-    for (int i = 1; i < testList.getCurrentSize()+1; i++)
-        cout << testList.retrieve(i) << endl;
+    cout << "# members, after access 8: size= " << testList.getCurrentSize() << ", traverseCount="
+         << testList.getTraverseCount() << endl;;
+    for (int i = 1; i < testList.getCurrentSize() + 1; i++)
+        cout << "i=" << i << ":" << testList.retrieve(i) << endl;
+
+    cout << "After retrieve each incrementally: traverseCount=" << testList.getTraverseCount() << endl;
+
+    cout << "testList.contains(7)=" << testList.contains(7) << endl;
+
+    cout << "# members, after access 7: size= " << testList.getCurrentSize() << ", traverseCount="
+         << testList.getTraverseCount() << endl;
+    for (int i = 1; i < testList.getCurrentSize() + 1; i++)
+        cout << "i=" << i << ":" << testList.retrieve(i) << endl;
+
+    cout << "After retrieve each incrementally: traverseCount=" << testList.getTraverseCount() << endl; // todo
 
 
     return 0;
+}
 
-    /*
 
+     /*
+     // CUSTOM DRIVER
     MtfList list;  // uncomment to test Mtflist
     // TransposeList list; // uncomment to test transposelist
     //CDLinkedList list; // uncomment to test CDLinkedList
@@ -136,65 +153,79 @@ int main() {
     return 0;
     */
 
- }
-
-
-
-
+ // ALTERED DRIVER
 /*
+   //MtfList testList;  // uncomment to test Mtflist
+   //TransposeList testList; // uncomment to test transposelist
+    CDLinkedList testList; // uncomment to test CDLinkedList
+
+   // Reset all traverse count first
+   testList.resetTraverseCount();
+   cout<<"Reset traverse count: traverseCount="<<testList.getTraverseCount()<<endl;
+   std::cout << "Making a list..." << std::endl;
 
 
-  //MtfList testList;  // uncomment to test Mtflist
-  // TransposeList testList; // uncomment to test transposelist
-  CDLinkedList testList; // uncomment to test CDLinkedList
-
-  // Reset all traverse count first
-  testList.resetTraverseCount();
-  cout<<"Reset traverse count: traverseCount="<<testList.getTraverseCount()<<endl;
-  std::cout << "Making a list..." << std::endl;
-
-
-  // traverseCount (tc) = 0
-  testList.add(1); // add() --> contains() tc = 0 because current == header, only one node n
-  testList.add(7); // add() --> contains() tc = 1 because we traverse one node, 7 (list is now 7, 1)
-  testList.add(8); // add() --> contains() tc = 3 because we traverse two node, 7 and 1 (list is now 8, 7, 1)
-  testList.add(5); // add() --> contains() tc = 6 because we traverse three nodes, 8, 7 and 1 (list is now 5, 8, 7, 1)
-  testList.add(1); // add() --> contains() tc = 10 because we traverse four nodes, 5, 8, 7 and 1 (list is now 5, 8, 7, 1)
+   // traverseCount (tc) = 0
+   testList.add(1); // add() --> contains() tc = 0 because current == header, only one node n
+   testList.add(7); // add() --> contains() tc = 1 because we traverse one node, 7 (list is now 7, 1)
+   testList.add(8); // add() --> contains() tc = 3 because we traverse two node, 7 and 1 (list is now 8, 7, 1)
+   testList.add(5); // add() --> contains() tc = 6 because we traverse three nodes, 8, 7 and 1 (list is now 5, 8, 7, 1)
+   testList.add(1); // add() --> contains() tc = 10 because we traverse four nodes, 5, 8, 7 and 1 (list is now 5, 8, 7, 1)
 
 
 
-  cout<<"Traverse count after adding elements to list: traverseCount="<<testList.getTraverseCount()<<endl;
+   cout<<"Traverse count after adding elements to list: traverseCount="<<testList.getTraverseCount()<<endl;
 
-  cout << "#members 1->7->8->5->1: size=" << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
-  cout<<"traverse count="<<testList.getTraverseCount()<<endl;
-  for (int i = 0; i < testList.getCurrentSize(); i++)
-      cout << testList.retrieve(i) << endl;
+   cout << "#members 1->7->8->5->1: size=" << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
+   cout<<"traverse count="<<testList.getTraverseCount()<<endl;
+   for (int i = 1; i < testList.getCurrentSize()+1; i++)
+       cout << testList.retrieve(i) << endl; //5, 8, 7, 1
+       // 5 --> 0 tc since index starts at 1 not 0
+       // 8 --> 1 tc
+       // 7 --> 2 tc
+       // 1 --> 3 tc
+
+   cout<<"traverse count="<<testList.getTraverseCount()<<endl; // todo remove
+
+   cout << endl;
+   testList.remove(8); // tc = 2, 5, 8
+   cout<<"traverse count="<<testList.getTraverseCount()<<endl; // todo remove
+
+   cout << "#After remove 8, : size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
+   cout<<"traverse count="<<testList.getTraverseCount()<<endl;
+   for (int i = 1; i < testList.getCurrentSize()+1; i++)
+       cout << testList.retrieve(i) << endl;
+   // 5 --> 0 tc since index starts at 1 not 0
+   // 7 --> 1 tc
+   // 1 --> 2 tc
+   cout<<"traverse count= "<<testList.getTraverseCount()<<endl; // todo remove
+
+   cout << endl;
+   cout<<"testList.contains(8)="<<testList.contains(8)<<endl;
+   cout<<"traverse count= "<<testList.getTraverseCount()<<endl; // todo remove
 
 
-  cout << endl;
-  testList.remove(8);
-
-  cout << "#After remove 8, : size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
-  cout<<"traverse count="<<testList.getTraverseCount()<<endl;
-  for (int i = 0; i < testList.getCurrentSize(); i++)
-      cout << testList.retrieve(i) << endl;
-
-  cout << endl;
-  cout<<"testList.contains(8)="<<testList.contains(8)<<endl;
-
-  cout << "# members, after access 8: size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
-  for (int i = 0; i < testList.getCurrentSize(); i++)
-      cout << testList.retrieve(i) << endl;
-
-  cout<<"testList.contains(7)="<<testList.contains(7)<<endl;
-
-  cout << "# members, after access 7: size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;
-  for (int i = 0; i < testList.getCurrentSize(); i++)
-      cout << testList.retrieve(i) << endl;
+   cout << "# members, after access 8: size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;;
+   for (int i = 1; i < testList.getCurrentSize()+1; i++)
+       cout << testList.retrieve(i) << endl;
+   // 5 --> 0 tc since index starts at 1 not 0
+   // 7 --> 1 tc
+   // 1 --> 2 tc
+   cout<<"traverse count= "<<testList.getTraverseCount()<<endl; // todo remove should be 27
 
 
-  return 0;
+   cout<<"testList.contains(7)="<<testList.contains(7)<<endl;
+   // 2 because 5 then 7
+   cout<<"traverse count= "<<testList.getTraverseCount()<<endl; // todo remove should be 29
+
+   cout << "# members, after access 7: size= " << testList.getCurrentSize() << ", traverseCount="<<testList.getTraverseCount()<<endl;
+   for (int i = 1; i < testList.getCurrentSize()+1; i++)
+       cout << testList.retrieve(i) << endl;
+   // 5 --> 0 tc since index starts at 1 not 0
+   // 7 --> 1 tc
+   // 1 --> 2 tc
+   cout<<"traverse count= "<<testList.getTraverseCount()<<endl; // todo remove should be 32
+
+
+   return 0;
    */
-
-
-

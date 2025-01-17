@@ -8,8 +8,20 @@ bool TransposeList::contains(int anEntry) {
             // Every time an element is accessed, it is swapped with the previous node
             // assuming the current element is not the head or the first node
             if (current->prev != header) {
-                DListNode* prevNode = current->prev;  // The node before current
+                DListNode* prevNode = current->prev;  // The node before current (2)
 
+                current->prev = prevNode->prev; // 3 <-- 1
+                prevNode->next = current->next; //  1 --> 2
+
+                current->next->prev = prevNode; // dummy header prev is prevNode
+                prevNode->prev = current; // prevNode prev
+
+                current->next = prevNode; // 1 <-- 2 // current next
+                current->prev->next = current; // 3 --> 1 // node before scurrent prev
+
+
+
+                /*
                 // Step 1: Update current's previous node to be prevNode's previous node
                 current->prev = prevNode->prev;
 
@@ -33,6 +45,7 @@ bool TransposeList::contains(int anEntry) {
                 if (header->next == prevNode) {
                     header->next = current;
                 }
+                 */
             }
             return true;  // Found the element, swap was done
         }
