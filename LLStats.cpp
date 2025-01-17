@@ -15,7 +15,7 @@
 
 using namespace std;
 
-/*
+
 int main() {
     // Alter the following declaration to change the linked list class name.
     //CDLinkedList theList;
@@ -76,7 +76,7 @@ int main() {
          << theList.getTraverseCount() / double(numAccesses) << endl;
 
 }
- */
+
 
 
 
