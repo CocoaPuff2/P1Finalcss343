@@ -1,7 +1,7 @@
 
-//#include "CDLinkedList.h"
+#include "CDLinkedList.h"
 //#include "mtflist.h"
-#include "transposelist.h"
+//#include "transposelist.h"
 #include <iostream>
 using namespace std;
 
@@ -13,8 +13,8 @@ int main() {
 
 
     //MtfList testList;  // uncomment to test Mtflist
-    TransposeList testList; // uncomment to test transposelist
-    // CDLinkedList testList; // uncomment to test CDLinkedList
+    //TransposeList testList; // uncomment to test transposelist
+    CDLinkedList testList; // uncomment to test CDLinkedList
 
 // Reset all traverse count first
 // TODO REMOVE THIS COMMENT
