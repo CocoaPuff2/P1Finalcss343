@@ -1,37 +1,45 @@
-
-#include "transposelist.h"
 #include "transposelist.h"
 
 bool TransposeList::contains(int anEntry) {
-
     DListNode* current = header->next;
-    while ( current != header) {
+
+    while (current != header) {
         if (current->item == anEntry) {
-            // every time an element is accessed,
-            // it is swapped with the previous node of the list
-            // assuming the current element is not the head
+            // Every time an element is accessed, it is swapped with the previous node
+            // assuming the current element is not the head or the first node
             if (current->prev != header) {
-                // ex: dummy --> 1 <--> 2 <--> 3 --> dummy header
-                // ex: current = 2
-                DListNode* prevNode = current->prev; // 1
+                DListNode* prevNode = current->prev;  // The node before current
 
-                // should be the node after current
-                current->prev = prevNode->prev; // 2 --> 1
+                // Step 1: Update current's previous node to be prevNode's previous node
+                current->prev = prevNode->prev;
 
-                // since prevNode is the 1, prevNode->prev is dummy
-                prevNode->prev->next = current; // update pointer of dummy --> 2
+                // Step 2: Update prevNode's previous node to point to current (if it's not the header)
+                if (prevNode->prev != nullptr && prevNode->prev != header) {
+                    prevNode->prev->next = current;
+                }
 
-                // NOW: dummy -> 2 <--> 1
-                prevNode->next = current->next; // 1 --> 3 --> dummy header
+                // Step 3: Update prevNode's next to be current's next node
+                prevNode->next = current->next;
 
-                current->next->prev = prevNode; //  1 <--> 3
+                // Step 4: Update current's next node's previous pointer to prevNode (if it's not the header)
+                if (current->next != header && current->next != nullptr) {
+                    current->next->prev = prevNode;
+                }
+
+                // Step 5: Set current's next pointer to prevNode
                 current->next = prevNode;
+
+                // Step 6: Update the header to point to the new first node if necessary
+                if (header->next == prevNode) {
+                    header->next = current;
+                }
             }
-            traverseCount++;
-            return true;
+            return true;  // Found the element, swap was done
         }
-        current = current->next;
         traverseCount++;
+        current = current->next;
     }
-    return false;
+
+    return false;  // Element not found
 }
+

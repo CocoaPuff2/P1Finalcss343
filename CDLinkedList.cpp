@@ -63,7 +63,7 @@ bool CDLinkedList::add(int newEntry)
     header->next = newNode;
 
     // Increment the traversal count
-    traverseCount++;
+   // traverseCount++;
     return true;
 }
 
@@ -73,13 +73,14 @@ bool CDLinkedList::remove(int anEntry)
     DListNode *current = header->next;
     while (current != header)
     {
+        traverseCount++;
         if (current->item == anEntry)
         {
             current->prev->next = current->next; // Skip current
             current->next->prev = current->prev; // Fix prev connection
 
             delete current; // Avoid memory leaks
-            traverseCount--;
+            //traverseCount--;
             return true;
         }
         current = current->next;
@@ -111,6 +112,7 @@ bool CDLinkedList::contains(int anEntry)
 
     while (current != header)
     {
+        traverseCount++;
         if (current->item == anEntry)
         {
             return true;
@@ -127,20 +129,26 @@ int CDLinkedList::getTraverseCount() const
 }
 
 // Retrieve entry based on an index
+// Retrieve entry based on an index
 int CDLinkedList::retrieve(int index)
 {
-    if (index < 0 || index >= getCurrentSize())
-    { // index should be less than getCurrentSize
+    // Ensure the index is valid: must be between 1 and getCurrentSize()
+    if (index < 1 || index > getCurrentSize())
+    {
         throw std::out_of_range("Oops, the index is out of range");
     }
 
-    DListNode *current = header->next;
-    for (int i = 0; i < index; i++)
+    DListNode *current = header->next;  // Start at the first valid node (after dummy header)
+
+    // Traverse the list to the desired index (adjusting for 1-based index)
+    for (int i = 1; i < index; i++)  // Start from i = 1 as we're treating the first item as index 1
     {
         current = current->next;
     }
+
     return current->item;
 }
+
 
 // Reset traverse count
 void CDLinkedList::resetTraverseCount()

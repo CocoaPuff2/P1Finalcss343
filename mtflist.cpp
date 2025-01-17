@@ -24,7 +24,9 @@
 bool MtfList::contains(int anEntry) {
     DListNode* current = header->next;
     while (current != header) {
+        traverseCount++;
         if (current->item == anEntry) { // move element to front
+
             // if it's not already the first node
             if (current->prev != header) {
                 // Remove the node from the current pos
@@ -38,11 +40,11 @@ bool MtfList::contains(int anEntry) {
                 header->next = current; // dummy head next --> current
                 current->prev = header; // current's prev --> dummy head
             }
-            traverseCount++;
+
             return true;
         }
+
         current = current->next;
-        traverseCount++;
     }
     return false;
 }
