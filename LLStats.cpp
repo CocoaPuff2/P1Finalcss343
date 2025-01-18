@@ -10,7 +10,7 @@
 // Replace the following include with alternative linked list class. Currently
 // it test CDLinkedList
 //#include "CDLinkedList.h"
-//#include "transposelist.h"
+#include "transposelist.h"
 //#include "mtflist.h"
 
 using namespace std;

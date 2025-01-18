@@ -2,25 +2,6 @@
 #include "mtflist.h"
 #include "CDLinkedList.h"
 
-/*
- * ex:
- * dummy head node -> 1 <-> 2 <-> 3 <-> 4 -> dummy head node
- * anEntry = 3
- *
- * current = header->next start at 1
- *
- * 3 iterations of current->item == anEntry (3) so traverseCount = 3
- *
- * current->prev->next = current->next;  // 2 -> 4
- * current->next->prev = current->prev // 2 <--> 4
- *
- *  current->next = header->next; // 3 -> 1
- *  header->next->prev = current;  // 3 <--> 1
- *
- *   header->next = current; dummy -> 3
- * current->prev = header; dummy <--> 3
- *
- */
 bool MtfList::contains(int anEntry) {
     DListNode* current = header->next;
     while (current != header) {

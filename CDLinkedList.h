@@ -5,6 +5,7 @@
 
 
 /*
+ * Pseudocode:
  * Design and implement a Circular Doubly Linked List with dummy header
  * with all listed methods with a Node class/struct that holds an int,
  * and two pointers point to previous and next node.
@@ -12,6 +13,9 @@
  * Since it is circular and with a dummy header, the first node is a dummy header
  * and last node's next node should point this dummy header, and dummy header's
  * previous node is the list's last node.
+ *
+ * dummy  header = index 0
+ * first node = index 1
  */
 
 struct DListNode {

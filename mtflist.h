@@ -5,8 +5,8 @@
 
 #include "CDLinkedList.h"
 
-// implements the move-to-front strategy
-// the most currently accessed node is moved to the front
+// implements move-to-front strategy
+// AKA: most currently accessed node is moved to the front
 
 class MtfList : public CDLinkedList {
 public:
